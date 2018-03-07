@@ -29,4 +29,22 @@ js基础总结
 
 ![原型链](http://upload-images.jianshu.io/upload_images/5311449-f837451dbd5b2a7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
+> 描述new 一个对象的过程
+
+1. 创建一个新对象
+2. `this`指向这个新对象
+3. 执行代码，即对`this`赋值
+4. 返回`this`
+```
+function Foo(name,age){
+  this.name = name;
+  this.age = age;
+  this.class = 'class-1';
+  // return this;
+}
+
+var f = new Foo('viiv',123);
+```
+
+
 
