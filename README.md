@@ -46,5 +46,12 @@ function Foo(name,age){
 var f = new Foo('viiv',123);
 ```
 
+所以判断一个数据是否是数组 
+```
+var arr = [1,2,3]
+arr instanceof Array  // true
+typeof arr  // object
+```
+
 
 
