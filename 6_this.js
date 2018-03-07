@@ -1,0 +1,61 @@
+/** 
+ * this要在执行时才能确认值，定义时无法确认
+ * 作为构造函数执行
+ * 作为对象属性执行
+ * 作为普通对象执行
+ * call apply bind
+*/
+var a = {
+    name: 'A',
+    fn: function(){
+        console.log(this.name)
+    }
+}
+a.fn()   // A    this === a
+a.fn.call({name: 'B'}) //  B   this === {name: 'B'}
+var fn1 = a.fn
+fn1() // this === window
+
+
+/**
+ * 作为构造函数执行
+ * @param {*} name 
+ */
+function Foo(name){
+    this.name = name
+}
+// 1.定义一个新对象f 
+// 2.将this指向这个新对象f
+// 3.执行代码进行this赋值
+// 4.返回this
+var f = new Foo('viiv')
+
+
+/** 
+ * 作为对象属性执行
+*/
+var obj = {
+    name: 'A',
+    printName: function(){
+        console.log(this.name)
+    }
+}
+obj.printName() // A
+
+
+/**
+ * 作为函数执行
+ */
+function fn(){
+    console.log(this) 
+}
+fn() // this === window
+
+
+// call apply bind
+function fn1(name){
+    alert(name)
+    console.log(this)
+}
+
+fn1.call({x:100}, 'zhangsan')   // this === {x:100}
