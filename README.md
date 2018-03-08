@@ -275,6 +275,14 @@ setTimeout(function(){
 console.log(5)
 // 1 3 5 2 4
 ```
+## Math 
+###### 获取随机数，要求是长度一致的字符串格式
+```
+ var random = Math.random()
+ var random = random + '0000000000'
+ var random = random.slice(0, 10)
+ console.log(random)
+```
 
 ## 日期API
 ```
@@ -287,6 +295,21 @@ dt.getDate() // 日 （0 - 31）
 dt.getHours() // 时 （0 - 23）
 dt.getMinutes() // 分 （0 - 59）
 dt.getSeconds() // 秒 （0 - 59）
+```
+###### 获取2017-06-10格式的日期
+```
+function formatDate(dt){
+    if(!dt){
+        dt = new Date()
+    }
+    var year = dt.getFullYear()
+    var month = dt.getMonth() + 1
+    month = month < 10 ? '0' + month : month
+    var date = dt.getDate()
+    date = date < 10 ? '0' + date : date
+    return year + '-' + month + '-' + date;
+}
+formatDate(new Date()) // "2018-03-08"
 ```
 
 ## 数组API
@@ -344,6 +367,53 @@ var arr2 = arr.filter(function(item, index){
     return item > 2
 })
 console.log(arr2) // [3]
+```
+## 对象API
+```
+var obj = {
+    x: 100,
+    y: 200,
+    z: 300
+}
+var key
+for(key in obj){
+    // 注意这里的 hasOwnProperty，在讲原型链的时候讲过了
+    // 拿出本身的属性而不是继承来的
+    if(obj.hasOwnProperty(key)){
+        console.log(key, obj[key])
+    }
+}
+// x 100
+// y 200
+// z 300
+```
+
+###### 写一个能遍历对象和数组的forEach函数
+```
+function forEach(obj, fn){
+     var key
+     if(obj instanceof Array){
+         // 准确判断是否数组
+        obj.forEach(function(item, index){
+            fn(index, item)
+        })
+     }else{
+         // 对象
+        for(key in obj){
+            fn(key, obj[key])
+        }
+     }
+ }
+
+ var arr = [1, 2, 3]
+ forEach(arr, function(index, item){
+     console.log(index, item)
+ })
+
+ var obj = {x: 100, y: 200}
+ forEach(obj, function(key, value){
+     console.log(key, value)
+ })
 ```
 
 

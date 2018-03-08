@@ -11,3 +11,35 @@ for(key in obj){
         console.log(key, obj[key])
     }
 }
+// x 100
+// y 200
+// z 300
+
+
+/**
+ * 写一个能遍历对象和数组的forEach函数
+ */
+ function forEach(obj, fn){
+     var key
+     if(obj instanceof Array){
+         // 数组
+        obj.forEach(function(item, index){
+            fn(index, item)
+        })
+     }else{
+         // 对象
+        for(key in obj){
+            fn(key, obj[key])
+        }
+     }
+ }
+
+ var arr = [1, 2, 3]
+ forEach(arr, function(index, item){
+     console.log(index, item)
+ })
+
+ var obj = {x: 100, y: 200}
+ forEach(obj, function(key, value){
+     console.log(key, value)
+ })
