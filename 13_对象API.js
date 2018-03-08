@@ -29,7 +29,9 @@ for(key in obj){
      }else{
          // 对象
         for(key in obj){
-            fn(key, obj[key])
+            if(obj.hasOwnProperty(key)){
+                fn(key, obj[key])
+            }
         }
      }
  }

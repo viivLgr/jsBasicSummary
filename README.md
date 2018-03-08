@@ -278,10 +278,10 @@ console.log(5)
 ## Math 
 ###### 获取随机数，要求是长度一致的字符串格式
 ```
- var random = Math.random()
- var random = random + '0000000000'
- var random = random.slice(0, 10)
- console.log(random)
+var random = Math.random()
+random = random + '0000000000'
+random = random.slice(0, 10)
+console.log(random)
 ```
 
 ## 日期API
@@ -400,7 +400,9 @@ function forEach(obj, fn){
      }else{
          // 对象
         for(key in obj){
-            fn(key, obj[key])
+            if(obj.hasOwnProperty(key)){
+                fn(key, obj[key])
+            }
         }
      }
  }
