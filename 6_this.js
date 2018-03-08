@@ -1,9 +1,9 @@
 /** 
  * this要在执行时才能确认值，定义时无法确认
- * 作为构造函数执行
- * 作为对象属性执行
- * 作为普通对象执行
- * call apply bind
+ * 1. 作为构造函数执行
+ * 2. 作为对象属性执行
+ * 3. 作为普通对象执行
+ * 4. call apply bind
 */
 var a = {
     name: 'A',
@@ -18,7 +18,7 @@ fn1() // this === window
 
 
 /**
- * 作为构造函数执行
+ * 1. 作为构造函数执行
  * @param {*} name 
  */
 function Foo(name){
@@ -32,7 +32,7 @@ var f = new Foo('viiv')
 
 
 /** 
- * 作为对象属性执行
+ * 2. 作为对象属性执行
 */
 var obj = {
     name: 'A',
@@ -44,7 +44,7 @@ obj.printName() // A
 
 
 /**
- * 作为函数执行
+ * 3. 作为函数执行
  */
 function fn(){
     console.log(this) 
@@ -52,7 +52,7 @@ function fn(){
 fn() // this === window
 
 
-// call apply bind
+// 4. call apply bind
 function fn1(name,age){
     alert(name + age)
     console.log(this)
@@ -67,4 +67,13 @@ var fn2 = function(name, age){
     console.log(this)
 }.bind({x: 1000})
 
-fn2('zhangsan', 20)
+fn2('zhangsan', 20) // {x:1000}
+
+
+/**
+ * this的几种不同的使用场景
+ * 1. 作为构造函数执行
+ * 2. 作为对象属性执行
+ * 3. 作为普通对象执行
+ * 4. call apply bind
+ */

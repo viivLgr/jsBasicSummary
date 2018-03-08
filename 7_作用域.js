@@ -44,3 +44,43 @@ function F1(){
   F2()
 }
 F1()
+
+
+/**
+ * 创建10个<a>标签，点击的时候弹出来对应的序号
+ */
+
+// 错误写法
+// 执行click的时候i的值已经变成了10
+var i, a
+for(i = 0; i < 10; i++){
+    a = document.createElement('a');
+    a.innerHTML = i + '<br>';
+    a.addEventListener('click',function(e){
+        e.preventDefault();
+        alert(i) // 自由变量，要去父作用域(全局)获取值
+    })
+    document.body.appendChild(a);
+}
+
+// 正确写法!!!
+var i
+for(i = 0; i < 10; i++){
+    (function(i){
+        // 函数作用域
+        var a = document.createElement('a');
+        a.innerHTML = i + '<br>';
+        a.addEventListener('click', function(e){
+            e.preventDefault();
+            alert(i) // 自由变量，父级作用域在自执行函数内，定义时保留了i值
+        });
+        document.body.appendChild(a);
+    })(i)
+}
+
+/**
+ * 如何理解作用域
+ * 1. 自由变量：在当前作用域范围内没有定义的变量
+ * 2. 作用域链，即自由变量的查找： 从定义的地方寻找父级作用域
+ * 3. 闭包的两个场景： 函数作为返回值和函数作为参数
+ */
