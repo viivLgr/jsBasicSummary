@@ -53,9 +53,18 @@ fn() // this === window
 
 
 // call apply bind
-function fn1(name){
-    alert(name)
+function fn1(name,age){
+    alert(name + age)
     console.log(this)
 }
 
 fn1.call({x:100}, 'zhangsan')   // this === {x:100}
+fn1.apply({x:100},['zhangsan',20])
+
+// bind必须是函数表达式方式绑定this指向
+var fn2 = function(name, age){
+    alert(name)
+    console.log(this)
+}.bind({x: 1000})
+
+fn2('zhangsan', 20)
