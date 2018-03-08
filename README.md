@@ -234,8 +234,8 @@ console.log(300)
 // 100  300  200
 ```
 #### 前端使用异步的场景
-1. 定时任务：setTimeout setInterval
-2. 网络请求：ajax请求、<img>图片加载
+1. 定时任务：`setTimeout` `setInterval`
+2. 网络请求：`ajax`请求、`<img>`图片加载
 3. 事件绑定
  
 ```
