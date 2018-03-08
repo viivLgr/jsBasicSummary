@@ -1,0 +1,1 @@
+var rd = Math.random()    // 1 > rd > 0
