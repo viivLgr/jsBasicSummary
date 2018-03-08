@@ -212,8 +212,68 @@ var firstLoad = isFirstLoad()
 firstLoad(10) // true
 firstLoad(20) // true
 firstLoad(10) // false
-// 在isFirstLoad函数外面，根本不可能修改_list的值
 ```
 
+## 同步和异步
+#### 同步和异步的区别是什么
+1. 同步会阻塞代码执行，而异步不会
+2. alert是同步，setTimeout是异步
+
+```
+console.log(100)
+alert(200)
+console.log(300)
+// 100 弹出200 300
+
+
+console.log(100)
+setTimeout(function(){
+    console.log(200)
+},1000)
+console.log(300)
+// 100  300  200
+```
+#### 前端使用异步的场景
+1. 定时任务：setTimeout setInterval
+2. 网络请求：ajax请求、<img>图片加载
+3. 事件绑定
+ 
+```
+// ajax请求示例
+ console.log('start')
+ $.get('../data.json', function(data1){
+     console.log(data1)
+ })
+console.log('end')
+
+// <img>加载示例
+console.log('start')
+var img = document.createElement('img')
+img.onload = function(){
+    console.log('loaded')
+}
+img.src = 'xxx.png'
+console.log('end')
+
+// 事件绑定示例
+console.log('start')
+document.getElementById('btn1').addEventListener('click', function(){
+    console.log('clicked')
+})
+console.log('end')
+```
+######  关于setTimeout的笔试题
+```
+console.log(1)
+setTimeout(function(){
+    console.log(2)
+}, 0)
+console.log(3)
+setTimeout(function(){
+    console.log(4)
+},1000)
+console.log(5)
+// 1 3 5 2 4
+```
 
 
