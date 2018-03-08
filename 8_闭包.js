@@ -52,3 +52,5 @@ var firstLoad = isFirstLoad()
 firstLoad(10) // true
 firstLoad(20) // true
 firstLoad(10) // false
+
+// 在isFirstLoad函数外面，根本不可能修改_list的值
