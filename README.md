@@ -479,3 +479,49 @@ history.back() // 返回
 history.forward() // 前进
 ```
 
+## 事件
+###### 简述事件冒泡流程
+1. DOM树形结构
+2. 事件冒泡，层层向上触发事件
+3. 阻止冒泡： `e. stopPropagation()` 
+4. 冒泡的应用：代理
+
+###### 代理（由于事件冒泡机制）
+1. 使用代理： 对于无线下拉加载的图片，如何给每个图片绑定事件
+2. 代理的两个优点：代码简洁、减少浏览器内存占用
+
+###### 编写一个通用的事件监听函数
+```
+function bindEvent(elem, type, selector, fn){
+    if(fn == null){
+        fn = selector
+        selector = null
+    }
+    elem.addEventListener(type, function(e){
+        var target
+        if(selector){
+            // 代理
+            target = e.target
+            if(target.matches(selector)){ // 判断element是否匹配给定的选择器。
+                fn.call(target, e)
+            }
+        }else{
+            // 不是代理
+            fn(e)
+        }
+    })
+}
+
+// 使用代理
+var div1 = document.getElementById('div1')
+bindEvent(div1, 'click', 'a', function(e){
+    e.preventDefault()
+    console.log(this.innerHTML)
+})
+// 不使用代理
+var a = document.getElementById('a1')
+bindEvent(div1, 'click', function(e){
+    console.log(a.innerHTML)
+})
+```
+
