@@ -581,3 +581,18 @@ script.type = 'text/javasctipt';
 script.src = 'demo.js?callback=fun';
 body.appendChild(script);
 ```
+
+## 存储
+###### 描述一下cookie、sessionStorage和localStorage的区别
+1. `cookie`容量小，只有4KB；`localStorage`和`sessionStorage`是HTML5专门为存储而设计，最大容量5M
+2. `cookie`是在请求中使用，所有http请求都带着，会影响获取资源的效率；`localStorage`和`sessionStorage`是HTML5专门为存储而设计
+3. `localStorage`和`sessionStorage`的API简单易用 
+```
+localStorage.setItem(key,value)
+localStorage.getItem(key)
+```
+`cookie`需要封装才能用`document.cookie = ...`
+###### localStorage和sessionStorage区别 
+`sessionStorage`如果浏览器关掉就清理，`localStorage`一直存在本地
+
+tips: iOS Safari 隐藏模式下，`localStorage.getItem()`会报错，建议使用`try-catch`包装
