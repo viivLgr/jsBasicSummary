@@ -599,11 +599,11 @@ tips: iOS Safari 隐藏模式下，`localStorage.getItem()`会报错，建议使
 
 ## git
 
- `git add .`
- `git checkout xxx`
- `git commit -m "xxx"` 先提到本地仓库，“xxx”备注
- `git push origin master` 推动到远程仓库
- `git pull origin master`  拉取远程仓库代码
+ - `git add .`
+ - `git checkout xxx`
+ - `git commit -m "xxx"` 先提到本地仓库，“xxx”备注
+ - `git push origin master` 推动到远程仓库
+ - `git pull origin master`  拉取远程仓库代码
 
 ## 模块化
 ###### 不使用模块化的缺点
