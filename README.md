@@ -610,6 +610,9 @@ tips: iOS Safari 隐藏模式下，`localStorage.getItem()`会报错，建议使
 1. 函数必须是全局变量，才能暴露给对方使用。全局变量污染
 2. 依赖关系不明确，容易缺失
 #### AMD  异步模块定义
+1. 全局`define`函数
+2. 全局`require`函数
+3. 依赖js会自动、异步加载
 [代码演示地址](https://github.com/viivLgr/jsBasicSummary/tree/master/20_AMD)
 ![使用require.js](http://upload-images.jianshu.io/upload_images/5311449-d559664dad745c8a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![使用require.js](http://upload-images.jianshu.io/upload_images/5311449-0ba480f2f217e031.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
