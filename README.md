@@ -768,6 +768,58 @@ window.addEventListener('DOMContentLoaded', function(){
 
 ```
 
+## 性能优化
+原则：多使用内存、缓存或者其他方法; 减少CPU计算、减少网络请求
+
+1. 加载资源优化
+- 静态资源的压缩合并（资源合并）
+- 静态资源缓存（使用时间戳缓存记录版本号）
+- 使用CDN让资源加载更快
+- 使用SSR后端渲染，数据直接输出到HTML中
+2. 渲染优化： 
+- CSS放前面、JS放后面
+- 懒加载（图片懒加载、下拉加载更多）
+```
+<img id="img1" src="preview.png" data-realsrc="abc.png">
+<script>
+
+var img1 = document.getElementById('img1')
+img1.src = img1.getAttribute('data-realsrc')
+
+// 检测浏览器滚动高度
+function isVisible($node){
+    var winH = $(window).height(),
+        scrollTop = $(window).scrollTop(),
+        offSetTop = $(window).offSet().top;
+    if (offSetTop < winH + scrollTop) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// 第一次被检查到时使用懒加载
+var hasShowed = false;
+$(window).on("sroll",function{
+    if (hasShowed) {
+        return;
+    } else {
+        if (isVisible($node)) {
+            hasShowed = !hasShowed;
+            console.log(true);
+        }
+    }
+})
+</script>
+```
+- 减少DOM查询，对DOM查询做缓存
+![缓存DOM查询](https://upload-images.jianshu.io/upload_images/5311449-b68420b109820835.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+- 减少DOM操作，多个操作尽量合并在一起执行
+![减少DOM操作](https://upload-images.jianshu.io/upload_images/5311449-fc49fe4585acbea5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+- 事件节流
+![事件节流](https://upload-images.jianshu.io/upload_images/5311449-f9d3753005074cad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 
