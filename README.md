@@ -823,4 +823,14 @@ $(window).on("sroll",function{
 ![事件节流](https://upload-images.jianshu.io/upload_images/5311449-f9d3753005074cad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
+## 安全性
+###### 场景
+1. XSS跨站请求攻击
+![XSS跨站请求攻击](https://upload-images.jianshu.io/upload_images/5311449-a7eed2678875b5cd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+- 前端替换关键字，例如替换`<`为`&lt; `，`>`为`&gt;`
+- 推荐后端替换
+2. XSRF跨站请求伪造
+![XSRF跨站请求伪造](https://upload-images.jianshu.io/upload_images/5311449-0e0048135b4ccd21.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+- 增加验证流程，如输入指纹、密码、短信验证码
+- 推荐后端来做
 
