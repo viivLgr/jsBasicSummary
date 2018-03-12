@@ -700,7 +700,7 @@ pwd  // 查看当前目录
 cd ../
 ```
 ![返回上级目录](https://upload-images.jianshu.io/upload_images/5311449-1abd79e3fa0364fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-- 新建文件
+- 新建（编辑）文件
 ```
 vi a.js
 
@@ -738,6 +738,35 @@ rm a.js
 rm -rf a
 ```
 ![删除](https://upload-images.jianshu.io/upload_images/5311449-7a736b0d217ffcc0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+## 页面加载过程、性能优化、安全性
+######  从输入URL到得到HTML的详细过程
+1. 加载资源的形式
+- 输入URL（或跳转页面）加载HTML 
+- 加载HTML中的静态资源(css、js、图片、媒体文件)
+2. 加载一个资源的过程
+- 浏览器根据DNS服务器得到域名的IP地址
+- 向这个IP的机器发送http请求
+- 服务器收到、处理、并返回http请求
+- 浏览器得到返回内容
+3. 浏览器渲染页面的过程
+- 根据HTML结构生成DOM Tree
+- 根据CSS生成CSSOM
+- 将DOM和CSSOM整合形成Render Tree
+- 根据RenderTree开始渲染和展示
+- 遇到<script>时，会**执行**并**阻塞**渲染
+
+######  `window.onload` 和 `DOMContentLoaded`的区别
+```
+window.addEventListener('load', function(){
+  // 页面的全部资源加载完才会执行，包括图片、视频等
+})
+
+window.addEventListener('DOMContentLoaded', function(){
+  // DOM 渲染完即可执行，此时图片、视频还可能没有加载完
+})
+
+```
 
 
 
