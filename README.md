@@ -655,3 +655,90 @@ module.exports = {
     ]
 }
 ```
+
+## 上线回滚流程
+###### 上线流程要点
+- 将测试完成的代码提交到Git版本库的master分支
+- 将当前服务器的代码全部打包并记录版本号、备份
+- 将master分支的代码提交覆盖到线上服务器、生成新版本号
+
+###### 回滚流程要点
+- 将当前服务器的代码打包并记录版本号、备份
+- 将备份的上一个版本号解压、覆盖到线上服务器，并生成新的版本号
+
+## Linux基本命令
+- 登录
+```
+ssh name@server
+```
+- 创建文件夹
+```
+mkdir a
+```
+![mkdir a](https://upload-images.jianshu.io/upload_images/5311449-a11b437967779a23.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+- 查看（只看名字）
+```
+ls
+```
+![ls](https://upload-images.jianshu.io/upload_images/5311449-1e6228a89abb9725.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+- 查看（列表形式）
+```
+ll
+```
+![ll](https://upload-images.jianshu.io/upload_images/5311449-976a811bb8b142cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+- 进入文件夹
+```
+cd a  // 进入a文件夹
+pwd  // 查看当前目录
+```
+
+![cd a](https://upload-images.jianshu.io/upload_images/5311449-0e6081a24efdeae6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+- 返回上级目录
+```
+cd ../
+```
+![返回上级目录](https://upload-images.jianshu.io/upload_images/5311449-1abd79e3fa0364fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+- 新建文件
+```
+vi a.js
+
+i      // insert 可以输入
+esc // 停止输入
+
+// 保存
+1. 先点击ESC
+2. :w  (写) 就可以保存了
+3. :q  (退出)
+```
+- 查看文件
+```
+cat a.js
+
+head -n 1 a.js // 查看前一行
+tail -n 2 a.js  // 查看后两行
+grep '2' a.js  // 从文件中搜索
+```
+- 拷贝文件
+```
+cp a.js a1.js
+```
+![文件拷贝](https://upload-images.jianshu.io/upload_images/5311449-f086cfa228dc44e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+- 移动文件
+```
+mv a1.js ../src/a1.js   // 将a1.js 移动到src目录下
+```
+- 删除文件
+```
+rm a.js
+```
+- 删除文件夹
+```
+rm -rf a
+```
+![删除](https://upload-images.jianshu.io/upload_images/5311449-7a736b0d217ffcc0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+
+
+
