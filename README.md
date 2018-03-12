@@ -599,11 +599,11 @@ tips: iOS Safari 隐藏模式下，`localStorage.getItem()`会报错，建议使
 
 ## git
 
- - `git add .`
- - `git checkout xxx`
- - `git commit -m "xxx"` 先提到本地仓库，“xxx”备注
- - `git push origin master` 推动到远程仓库
- - `git pull origin master`  拉取远程仓库代码
+- `git add .`
+-  `git checkout xxx`
+- `git commit -m "xxx"` 先提到本地仓库，“xxx”备注
+-  `git push origin master` 推动到远程仓库
+-  `git pull origin master`  拉取远程仓库代码
 
 ## 模块化
 ###### 不使用模块化的缺点
@@ -616,3 +616,42 @@ tips: iOS Safari 隐藏模式下，`localStorage.getItem()`会报错，建议使
 [代码演示地址](https://github.com/viivLgr/jsBasicSummary/tree/master/20_AMD)
 ![使用require.js](http://upload-images.jianshu.io/upload_images/5311449-d559664dad745c8a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![使用require.js](http://upload-images.jianshu.io/upload_images/5311449-0ba480f2f217e031.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+#### CommonJS
+nodejs模块化规范，被大量前端使用，原因有：
+1. 前端开发依赖的插件和库，都可以从npm中获取（node-package-manager）
+2. 构建工具的高度自动化，使得使用npm成本非常低
+3. CommonJS不会异步加载js，而是同步一次性加载出来
+
+![使用CommonJS](https://upload-images.jianshu.io/upload_images/5311449-f5f86ee8f3a2162d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+###### AMD和CommonJS的使用场景
+1. 需要异步加载，使用AMD
+2. 使用了npm之后，建议使用CommonJS
+
+###### npm 使用
+- `npm init` 生成package.json文件
+- `npm install webpack -g --save-dev`   全局(-g)安装(install)webpack，`--save-dev`表示只是用于开发环境
+- `npm i jquery --save` 安装(i)jQuery，表示开发上线环境都要用
+- `npm uninstall moment` 卸载(uninstall)moment
+
+使用webpack打包，配置文件
+```
+// webpack.config.js
+var path = require('path')
+var webpack = require('webpack')
+
+module.exports = {
+    context: path.resolve(__dirname, './src'),
+    entry: {
+        app: './app.js'
+    },
+    output: {
+        path: path.resolve(__dirname, './dist'),
+        filename: 'bundle.js'
+    },
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin()
+    ]
+}
+```
