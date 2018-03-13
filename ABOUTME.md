@@ -32,8 +32,7 @@
 我主要负责网站pc端和移动端页面的改版与维护，以及活动页的开发。
 利魔方是一个投资理财服务平台。
 
-# 开源项目和作品
-## 开源项目
+# 开源作品
  - [FlappyBirdMiniGame](https://github.com/viivLgr/FlappyBirdMiniGame)：微信小游戏-碰撞的小鸟
   - [VueMusic](https://github.com/viivLgr/vue-music)：使用Vue编写的音乐播放器
 - [后台管理系统](https://github.com/viivLgr/BackManager)：使用Vue和Element UI编写的后台管理系统
