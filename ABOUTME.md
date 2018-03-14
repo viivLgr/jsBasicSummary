@@ -12,7 +12,6 @@
  - 技术博客：https://www.jianshu.com/u/9409949678fb
  - Github：https://github.com/viivLgr
  - 期望职位：前端开发工程师
- - 期望薪资：税前月薪12k~15k，特别喜欢的公司可例外
  - 期望城市：杭州
 
 # 工作经历
