@@ -834,3 +834,8 @@ $(window).on("sroll",function{
 - 增加验证流程，如输入指纹、密码、短信验证码
 - 推荐后端来做
 
+[ES6基础](https://github.com/viivLgr/jsBasicSummary/blob/master/ES6.md)
+
+
+
+
